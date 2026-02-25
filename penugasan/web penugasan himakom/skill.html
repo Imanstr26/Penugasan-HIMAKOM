@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill dan Minat | Portofolio Personal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-comic.css" />
+</head>
+<body>
+  <div id="app" v-cloak>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">{{ profile.brand }}</a>
+        <button class="menu-btn" @click="toggleMenu" :aria-expanded="menuOpen.toString()" aria-label="Buka menu navigasi">?</button>
+        <nav class="nav-links" :class="{ show: menuOpen }">
+          <a href="index.html">Beranda</a>
+          <a href="profil.html">Profil Diri</a>
+          <a href="skill.html" class="active">Skill / Minat</a>
+          <a href="penugasan.html">Penugasan</a>
+          <a href="portofolio.html">Portofolio</a>
+          <a href="kontak.html">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-enter">
+        <div class="container">
+          <h2>Skill / Minat</h2>
+          <div class="grid two-col">
+            <article class="card">
+              <h3>Skill Teknis</h3>
+              <ul>
+                <li v-for="skill in skills" :key="skill">{{ skill }}</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Minat</h3>
+              <ul>
+                <li v-for="interest in interests" :key="interest">{{ interest }}</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><p>© 2026 {{ profile.name }} - Website Portofolio Personal</p></div></footer>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

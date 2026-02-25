@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penugasan | Portofolio Personal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-comic.css" />
+</head>
+<body>
+  <div id="app" v-cloak>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">{{ profile.brand }}</a>
+        <button class="menu-btn" @click="toggleMenu" :aria-expanded="menuOpen.toString()" aria-label="Buka menu navigasi">?</button>
+        <nav class="nav-links" :class="{ show: menuOpen }">
+          <a href="index.html">Beranda</a>
+          <a href="profil.html">Profil Diri</a>
+          <a href="skill.html">Skill / Minat</a>
+          <a href="penugasan.html" class="active">Penugasan</a>
+          <a href="portofolio.html">Portofolio</a>
+          <a href="kontak.html">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-enter">
+        <div class="container">
+          <h2>Penugasan</h2>
+          <p>Berikut penugasan utama dengan file yang dapat dipreview dan diunduh:</p>
+          <div class="grid two-col">
+            <article class="card" v-for="task in tasks" :key="task.title" :id="task.id">
+              <h3>{{ task.title }}</h3>
+              <p v-if="task.goal"><strong>Tujuan:</strong> {{ task.goal }}</p>
+              <p v-if="task.result"><strong>Hasil:</strong> {{ task.result }}</p>
+              <p class="task-file"><strong>File:</strong> {{ task.fileLabel }}</p>
+              <div class="task-actions">
+                <a class="btn btn-mini btn-secondary" :href="task.fileUrl" target="_blank" rel="noopener noreferrer">Preview</a>
+                <a class="btn btn-mini btn-primary" :href="task.fileUrl" :download="task.downloadName">Download</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><p>© 2026 {{ profile.name }} - Website Portofolio Personal</p></div></footer>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

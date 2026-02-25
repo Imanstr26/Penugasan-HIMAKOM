@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak | Portofolio Personal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-comic.css" />
+</head>
+<body>
+  <div id="app" v-cloak>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">{{ profile.brand }}</a>
+        <button class="menu-btn" @click="toggleMenu" :aria-expanded="menuOpen.toString()" aria-label="Buka menu navigasi">?</button>
+        <nav class="nav-links" :class="{ show: menuOpen }">
+          <a href="index.html">Beranda</a>
+          <a href="profil.html">Profil Diri</a>
+          <a href="skill.html">Skill / Minat</a>
+          <a href="penugasan.html">Penugasan</a>
+          <a href="portofolio.html">Portofolio</a>
+          <a href="kontak.html" class="active">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-enter">
+        <div class="container">
+          <h2>Kontak</h2>
+          <p>Double click pada kartu kontak untuk langsung membuka link tujuan.</p>
+          <div class="contact-list">
+            <article
+              class="card contact-card"
+              v-for="contact in contacts"
+              :key="contact.platform"
+              @dblclick="openContact(contact.url)"
+              title="Double click untuk membuka link"
+            >
+              <div class="contact-icon" aria-hidden="true">
+                <svg v-if="contact.platform === 'email'" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <svg v-else-if="contact.platform === 'github'" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3C7.03 3 3 7.03 3 12c0 3.98 2.58 7.36 6.16 8.55.45.08.61-.2.61-.44v-1.72c-2.51.54-3.04-1.21-3.04-1.21-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.91.06 1.39.93 1.39.93.8 1.39 2.12.99 2.63.76.08-.58.31-.99.56-1.21-2-.23-4.1-1-4.1-4.45 0-.99.35-1.8.93-2.43-.09-.23-.4-1.16.09-2.42 0 0 .76-.24 2.49.93A8.6 8.6 0 0112 7.1a8.6 8.6 0 012.27.31c1.73-1.17 2.49-.93 2.49-.93.49 1.26.18 2.19.09 2.42.58.63.93 1.44.93 2.43 0 3.46-2.11 4.22-4.11 4.45.32.28.61.83.61 1.67v2.48c0 .24.16.52.62.44A9 9 0 0021 12c0-4.97-4.03-9-9-9z" fill="currentColor"/>
+                </svg>
+                <svg v-else viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="contact-body">
+                <p class="contact-platform">{{ contact.label }}</p>
+                <a :href="contact.url" target="_blank" rel="noopener noreferrer">{{ contact.value }}</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><p>© 2026 {{ profile.name }} - Website Portofolio Personal</p></div></footer>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

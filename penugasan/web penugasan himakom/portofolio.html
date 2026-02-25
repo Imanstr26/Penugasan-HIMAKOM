@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio | Portofolio Personal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-comic.css" />
+</head>
+<body>
+  <div id="app" v-cloak>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">{{ profile.brand }}</a>
+        <button class="menu-btn" @click="toggleMenu" :aria-expanded="menuOpen.toString()" aria-label="Buka menu navigasi">?</button>
+        <nav class="nav-links" :class="{ show: menuOpen }">
+          <a href="index.html">Beranda</a>
+          <a href="profil.html">Profil Diri</a>
+          <a href="skill.html">Skill / Minat</a>
+          <a href="penugasan.html">Penugasan</a>
+          <a href="portofolio.html" class="active">Portofolio</a>
+          <a href="kontak.html">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-enter">
+        <div class="container">
+          <h2>Portofolio / Proyek</h2>
+          <div class="grid two-col">
+            <article class="card" v-for="item in portfolio" :key="item.title">
+              <div class="portfolio-frame">
+                <img v-if="item.image" :src="item.image" :alt="item.title" />
+                <div v-else class="portfolio-placeholder">Tempat Gambar Proyek</div>
+              </div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+              <div class="project-actions">
+                <a
+                  class="btn btn-mini btn-secondary"
+                  v-if="item.previewUrl"
+                  :href="item.previewUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Preview</a>
+                <span class="chip" v-else>Link preview belum diisi</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><p>© 2026 {{ profile.name }} - Website Portofolio Personal</p></div></footer>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
