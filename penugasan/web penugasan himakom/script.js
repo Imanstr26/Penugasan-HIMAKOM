@@ -64,9 +64,9 @@ createApp({
         {
           id: "penugasan4",
           title: "Penugasan 4",
-          goal: "Menyempurnakan website portofolio dan menyiapkan publikasi source code melalui GitHub.",
+          goal: "Membuat Video Kreatif Untuk Menjawab Study Kasus yang Diberikan.",
           result:
-            "Website final rapi, terdokumentasi, dan siap deployment opsional ke Cloudflare Pages.",
+            "Video Kreatif Solusi Untuk Masalah yang Ada.",
           fileLabel: "Video Penugasan 4 (MP4)",
           fileType: "mp4",
           fileUrl: "files/penugasan-4.mp4",
