@@ -77,7 +77,7 @@ Website ini dapat dideploy ke layanan static hosting seperti:
 
 ## Link
 - Repository: `https://github.com/Imanstr26/penugasan-Himakom`
-- Deployment (opsional): `https://portfolio-iman.pages.dev`
+- Deployment (opsional): `https://web-portfolio-psi-ten.vercel.app/index.html`
 
 ## Lisensi
 Gunakan untuk kebutuhan pembelajaran dan penugasan.
